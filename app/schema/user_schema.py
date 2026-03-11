@@ -23,4 +23,6 @@ class UserOut(BaseModel):
     email: EmailStr
 
 class Config:
-    orm_mode = True
+     model_config = {
+        "from_attributes": True  # replaces orm_mode=True in Pydantic v2
+    }
