@@ -6,8 +6,7 @@ from alembic import context
 from dotenv import load_dotenv
 
 from app.database.database import Base
-from app.models.user import User
-
+from app.models import User, Note
 load_dotenv()
 
 config = context.config
