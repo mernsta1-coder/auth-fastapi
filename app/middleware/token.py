@@ -25,7 +25,7 @@ async def jwt_middleware(request: Request, call_next):
     try:   
         PUBLIC_KEY = os.getenv("PUBLIC_KEY").replace("\\n", "\n")
         payload = jwt.decode(token, PUBLIC_KEY, algorithms=[ALGORITHM])
-        print("payload",payload)
+        
         request.state.user = payload  # Save payload to request.state
     except JWTError:
         return JSONResponse(status_code=401, content={"detail": "Invalid token"})
